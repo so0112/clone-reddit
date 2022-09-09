@@ -5,6 +5,6 @@ const register = async (req: Request, res: Response) => {
   console.log("email : ", email);
 };
 const router = Router();
-router.post("register", register);
+router.post("/register", register);
 
 export default router;
