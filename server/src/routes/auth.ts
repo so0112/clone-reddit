@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router, Response, Request } from "express";
 
 const register = async (req: Request, res: Response) => {
   const { email, username, password } = req.body;

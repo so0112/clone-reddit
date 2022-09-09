@@ -7,7 +7,7 @@ interface InputGroupProps {
   placeholder?: string;
   value: string;
   error: string | undefined;
-  serValue: (str: string) => void;
+  setValue: (str: string) => void;
 }
 
 const InputGroup: React.FC<InputGroupProps> = ({
