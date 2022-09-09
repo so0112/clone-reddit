@@ -13,17 +13,19 @@ const Register = () => {
   let router = useRouter();
 
   const handleSubmit = async (event: FormEvent) => {
-    event.preventDefault();
+    event.preventDefault(); // form 상호작용시 발생하는 새로고침 방지 (원래의 동작을 막아주는 메서드)
+
     try {
+      // Object의 경의 Key와 value 값이 같으면 생략가능
       const res = await axios.post('/auth/register', {
         email,
         password,
         username
       });
-      console.log('res', res);
+      console.log('res : ', res);
       router.push('/login');
     } catch (error: any) {
-      console.log('error', error);
+      console.log('error : ', error);
       setErrors(error.response.data || {});
     }
   };

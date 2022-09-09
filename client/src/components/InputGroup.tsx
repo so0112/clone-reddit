@@ -10,13 +10,13 @@ interface InputGroupProps {
   serValue: (str: string) => void;
 }
 
-const InputGroup: React.Fc<InputGroupProps> = ({
+const InputGroup: React.FC<InputGroupProps> = ({
   className = 'mb-2',
   type = 'text',
   placeholder = '',
   error,
   value,
-  serValue
+  setValue
 }) => {
   return (
     <div className={className}>
