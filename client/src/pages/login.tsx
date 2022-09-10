@@ -14,12 +14,11 @@ const Login = () => {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     try {
-      const res = await axios.post('/auth/login', {
-        password,
-        username
-      });
-      console.log('res', res);
-      router.push('/login');
+      await axios.post(
+        '/auth/login',
+        { password, username },
+        { withCredentials: true }
+      );
     } catch (error: any) {
       console.log('error', error);
       setErrors(error.response.data || {});
