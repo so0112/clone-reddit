@@ -17,6 +17,7 @@ const Login = () => {
       await axios.post(
         '/auth/login',
         { password, username },
+        // 쿠키에 저장할 토큰을 발행하기 위한 키워드
         { withCredentials: true }
       );
     } catch (error: any) {
