@@ -9,11 +9,9 @@ const createSub = async (req: Request, res: Response, next) => {
 
   if (!token) return next();
 
-  const { username }: any = jwt.verify(token, process.env.JWT_SECRET);
-
-  const user = await User.findOneBy({ username });
-
-  if (!user) throw new Error("Unauthenticated");
+  // 밑의 코드는 유저정보를 확인할 때 필요한 정보들을 담고 있음
+  // 유저 정보를 필요로하는 여러 핸들러를 편하게 사용하기 위해 미들웨어로 분리 필요함
+  // server/src/middlewares에 작성됨
 };
 
 const router = Router();
