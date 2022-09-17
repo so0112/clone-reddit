@@ -1,6 +1,8 @@
 import { Router, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { User } from "../entities/User";
+import useMiddleware from "../middlewares/user";
+import authMiddleware from "../middlewares/auth";
 
 const createSub = async (req: Request, res: Response, next) => {
   const { name, title, description } = req.body;
@@ -16,6 +18,6 @@ const createSub = async (req: Request, res: Response, next) => {
 
 const router = Router();
 
-router.post("/", createSub);
+router.post("/", useMiddleware, authMiddleware, createSub);
 
 export default router;
