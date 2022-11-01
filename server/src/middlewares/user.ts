@@ -5,11 +5,13 @@ import { User } from "../entities/User";
 export default async (req: Request, res: Response, next: NextFunction) => {
   try {
     const token = req.cookies.token;
+    console.log("token", token);
     if (!token) return next();
 
     const { username }: any = jwt.verify(token, process.env.JWT_SECRET);
 
     const user = await User.findOneBy({ username });
+    console.log("user", user);
 
     if (!user) throw new Error("Unauthenticated");
 
