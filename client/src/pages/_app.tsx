@@ -1,6 +1,5 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import Axios from 'axios';
 import { AuthProvider } from '../context/auth';
 import axios from 'axios';
 
