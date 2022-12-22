@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { AuthProvider } from '../context/auth';
 import axios from 'axios';
+import NavBar from '../components/NavBar';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	axios.defaults.baseURL =
@@ -9,9 +10,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 	axios.defaults.withCredentials = true;
 
 	return (
-		<AuthProvider>
-			<Component {...pageProps} />
-		</AuthProvider>
+		<>
+			<NavBar />
+			<AuthProvider>
+				<Component {...pageProps} />
+			</AuthProvider>
+		</>
 	);
 }
 
